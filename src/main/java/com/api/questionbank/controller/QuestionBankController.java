@@ -1,11 +1,9 @@
 package com.api.questionbank.controller;
 
 
-import com.api.questionbank.exception.QuestionBankException;
 import com.api.questionbank.model.*;
 import com.api.questionbank.service.QuestionBankService;
 import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
@@ -24,7 +22,7 @@ public class QuestionBankController {
 
     @ExceptionHandler({ConversionFailedException.class,IllegalArgumentException.class, JacksonException.class})
     public ResponseEntity<String> ErrorResponse(){
-        return new ResponseEntity<String>("Valid Types suported are \n 1.MC - Multiple Choice \n 2. MM - Mathetical Questions \n 3.FB - Fill In The Blanks  \n 4.TF - True False Questions" +
+        return new ResponseEntity<String>("Valid Question Types suported are \n 1.MC - Multiple Choice \n 2. MM - Mathetical Questions \n 3.FB - Fill In The Blanks  \n 4.TF - True False Questions" +
                 "\n Valid Complexity supported are \n 1. E - Easy \n 2. M - Medium \n 3. H - Hard" , HttpStatus.BAD_REQUEST);
     }
 

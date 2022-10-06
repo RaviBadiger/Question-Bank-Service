@@ -28,9 +28,6 @@ public class QuestionBankService {
     @Autowired
     private MathematicsRepository mathematicsRepository;
 
-    @Autowired
-    private QuestionBankHelper questionBankHelper;
-
     public List<Object> getQuestions(Type type , Complexity complexity) {
         switch (type){
             case MC :  return multipleChoiceRepository.findMultipleChoicesByTypeAndAndComplexity(type, complexity);
