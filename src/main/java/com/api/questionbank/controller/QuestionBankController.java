@@ -62,11 +62,11 @@ public class QuestionBankController {
                                                 questionBankService.addMathematics(mathematics), HttpStatus.OK);
     }
 
-    @PostMapping("/test")
+   /* @PostMapping("/test")
     public  ResponseEntity Test(@RequestBody Object object){
         //questionBankService.Test(object);
         return new ResponseEntity<String>("Hello",HttpStatus.OK);
-    }
+    }*/
 
     @DeleteMapping("/{type}/{id}")
     public  ResponseEntity deleteQuestion(@PathVariable(name = "type") Type type,

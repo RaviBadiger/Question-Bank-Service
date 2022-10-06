@@ -37,10 +37,6 @@ public class QuestionBankService {
         }
     }
 
-    public void Test(Object object){
-        System.out.println(object instanceof  MultipleChoice);
-    }
-
     public Integer addMultipleChoice(MultipleChoice multipleChoice) {
         if(!(multipleChoice.getType().equals(Type.MC))){
             throw new QuestionBankException("Question type in JSON body is not matching with question type being requested for ");
