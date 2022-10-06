@@ -10,7 +10,6 @@ import com.api.questionbank.repository.TrueFalseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -39,25 +38,40 @@ public class QuestionBankService {
     }
 
     public void Test(Object object){
-
+        System.out.println(object instanceof  MultipleChoice);
     }
 
     public Integer addMultipleChoice(MultipleChoice multipleChoice) {
+        if(!(multipleChoice.getType().equals(Type.MC))){
+            throw new QuestionBankException("Question type in JSON body is not matching with question type being requested for ");
+        }
         multipleChoiceRepository.save(multipleChoice);
         return  multipleChoice.getId();
     }
 
     public Integer  addTrueFalse(TrueFalse trueFalse){
+        if(!(trueFalse.getType().equals(Type.TF))){
+            throw new QuestionBankException("Question type in JSON body is not matching with question type being requested for ");
+        }
         trueFalseRepository.save(trueFalse);
         return trueFalse.getId();
     }
 
     public Integer addFillInTheBlank(FillInTheBlank fillInTheBlank){
+        if(!(fillInTheBlank.getAnswer().length()<=10)){
+            throw new QuestionBankException("Number of characters in answer exceeds 10 characters");
+        }
+        if(!(fillInTheBlank.getType().equals(Type.FB))){
+            throw new QuestionBankException("Question type in JSON body is not matching with question type being requested for ");
+        }
         fillInTheBlankRepository.save(fillInTheBlank);
         return fillInTheBlank.getId();
     }
 
     public Integer addMathematics(Mathematics mathematics){
+        if(!(mathematics.getType().equals(Type.MM))){
+            throw new QuestionBankException("Question type in JSON body is not matching with question type being requested for ");
+        }
         mathematicsRepository.save(mathematics);
         return mathematics.getId();
     }

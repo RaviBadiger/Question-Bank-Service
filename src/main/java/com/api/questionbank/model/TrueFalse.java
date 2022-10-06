@@ -28,8 +28,8 @@ public class TrueFalse {
     @Column(name = "optionB", nullable = false)
     private Boolean optionB;
 
-    @Column(name = "answer",length = 1,nullable = false)
-    private String answer;
+    @Column(name = "answer",nullable = false)
+    private Boolean answer;
 
     @Column(name = "complexity", length = 1,nullable = false)
     @Enumerated(EnumType.STRING)
@@ -39,7 +39,7 @@ public class TrueFalse {
     @Enumerated(EnumType.STRING)
     private Type type;
 
-    public TrueFalse(String question, Boolean optionA, Boolean optionB, String answer, Complexity complexity, Type type) {
+    public TrueFalse(String question, Boolean optionA, Boolean optionB, Boolean answer, Complexity complexity, Type type) {
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;

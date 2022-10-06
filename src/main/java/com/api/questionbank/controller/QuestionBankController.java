@@ -4,6 +4,7 @@ package com.api.questionbank.controller;
 import com.api.questionbank.model.*;
 import com.api.questionbank.service.QuestionBankService;
 import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/qbank")
+@RequestMapping("/api/v1/bank")
 public class QuestionBankController {
 
     @Autowired
@@ -61,10 +62,10 @@ public class QuestionBankController {
                                                 questionBankService.addMathematics(mathematics), HttpStatus.OK);
     }
 
-    @PostMapping("/")
-    public  ResponseEntity Test(@RequestBody ResponseEntity object){
-        questionBankService.Test(object);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @PostMapping("/test")
+    public  ResponseEntity Test(@RequestBody Object object){
+        //questionBankService.Test(object);
+        return new ResponseEntity<String>("Hello",HttpStatus.OK);
     }
 
     @DeleteMapping("/{type}/{id}")

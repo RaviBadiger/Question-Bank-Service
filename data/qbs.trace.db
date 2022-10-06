@@ -315,3 +315,12 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-10-06 10:48:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ANSWER CHARACTER VARYING(10)": "'Respiratory problems' (20)"; SQL statement:
+insert into fill_in_the_blank (answer, complexity, question, type, id) values (?, ?, ?, ?, ?) [22001-214]
+2022-10-06 10:49:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ANSWER CHARACTER VARYING(10)": "'78 per cent' (11)"; SQL statement:
+insert into fill_in_the_blank (answer, complexity, question, type, id) values (?, ?, ?, ?, ?) [22001-214]
+2022-10-06 10:53:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ANSWER CHARACTER VARYING(10)": "'78 per cent' (11)"; SQL statement:
+insert into fill_in_the_blank (answer, complexity, question, type, id) values (?, ?, ?, ?, ?) [22001-214]
